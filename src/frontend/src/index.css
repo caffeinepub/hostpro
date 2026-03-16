@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Navy/Violet hosting palette */
+    --background: 0.97 0.005 260;
+    --foreground: 0.15 0.02 260;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 260;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 260;
+
+    /* Violet accent */
+    --primary: 0.58 0.22 295;
+    --primary-foreground: 1 0 0;
+
+    --secondary: 0.93 0.015 260;
+    --secondary-foreground: 0.15 0.02 260;
+
+    --muted: 0.93 0.012 260;
+    --muted-foreground: 0.48 0.04 260;
+
+    --accent: 0.62 0.18 260;
+    --accent-foreground: 1 0 0;
+
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.02 260;
+    --input: 0.88 0.02 260;
+    --ring: 0.58 0.22 295;
+
+    --radius: 0.75rem;
+
+    /* Hero dark navy */
+    --hero-bg: 0.13 0.055 265;
+    --hero-card: 0.18 0.04 265;
+    --hero-border: 0.28 0.06 265;
+    --violet: 0.58 0.22 295;
+    --violet-light: 0.72 0.18 295;
+    --violet-dark: 0.45 0.24 295;
+    --cyan-accent: 0.7 0.14 210;
+
+    /* Charts */
+    --chart-1: 0.58 0.22 295;
+    --chart-2: 0.7 0.14 210;
+    --chart-3: 0.65 0.18 160;
+    --chart-4: 0.7 0.2 50;
+    --chart-5: 0.62 0.22 25;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.005 260;
+    --sidebar-foreground: 0.15 0.02 260;
+    --sidebar-primary: 0.58 0.22 295;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.93 0.015 260;
+    --sidebar-accent-foreground: 0.15 0.02 260;
+    --sidebar-border: 0.88 0.02 260;
+    --sidebar-ring: 0.58 0.22 295;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Bricolage Grotesque", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+@layer utilities {
+  .hero-section {
+    background-color: oklch(var(--hero-bg));
+  }
+  .text-violet {
+    color: oklch(var(--violet));
+  }
+  .text-violet-light {
+    color: oklch(var(--violet-light));
+  }
+  .bg-violet {
+    background-color: oklch(var(--violet));
+  }
+  .bg-hero {
+    background-color: oklch(var(--hero-bg));
+  }
+  .bg-hero-card {
+    background-color: oklch(var(--hero-card));
+  }
+  .border-hero {
+    border-color: oklch(var(--hero-border));
+  }
+  .gradient-violet {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--violet-dark)),
+      oklch(var(--violet)),
+      oklch(0.65 0.18 275)
+    );
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      180deg,
+      oklch(var(--hero-bg)) 0%,
+      oklch(0.1 0.04 265) 100%
+    );
+  }
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--violet-light)),
+      oklch(var(--cyan-accent))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-violet {
+    box-shadow: 0 0 40px oklch(var(--violet) / 0.3), 0 0 80px
+      oklch(var(--violet) / 0.1);
+  }
+  .glow-violet-sm {
+    box-shadow: 0 0 20px oklch(var(--violet) / 0.25);
+  }
+  .glass-nav {
+    background: oklch(var(--hero-bg) / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .glass-card {
+    background: oklch(var(--hero-card) / 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .mesh-bg {
+    background-image: radial-gradient(
+        at 20% 50%,
+        oklch(var(--violet-dark) / 0.35) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 80% 20%,
+        oklch(0.45 0.2 265 / 0.25) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 60% 80%,
+        oklch(var(--cyan-accent) / 0.15) 0px,
+        transparent 50%
+      );
+  }
+}
